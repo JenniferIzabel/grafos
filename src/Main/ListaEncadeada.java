@@ -21,7 +21,7 @@ public class ListaEncadeada {
     private int initialSize;
     private double loadFactor = 0.75;
     private double sizeToRehash;
-    Map<String, ArrayList<Vertice>> hashMap = new HashMap<String, ArrayList<Vertice>>();
+    private Map<String, ArrayList<Vertice>> grafo = new HashMap<String, ArrayList<Vertice>>();
 
     public ListaEncadeada(Vertice[] v) {
         this.v = v;
@@ -33,34 +33,40 @@ public class ListaEncadeada {
         for (int i = 0; i < v.length; i++) {
             ArrayList<Vertice> aux = new ArrayList<Vertice>();
             aux.add(v[i]);
-            hashMap.put(v[i].getNome(), aux);
+            grafo.put(v[i].getNome(), aux);
         }
     }
 
     public void adicionarNovoVertice(Vertice ver) {
         ArrayList<Vertice> aux = new ArrayList<Vertice>();
         aux.add(ver);
-        hashMap.put(ver.getNome(), aux);
+        grafo.put(ver.getNome(), aux);
     }
 
     public void adicionarArestas(Vertice v1, Vertice v2) {
-        ArrayList<Vertice> posArray = hashMap.get(v1);
+        ArrayList<Vertice> posArray = grafo.get(v1);
         posArray.add(v2);
     }
 
     public void removerArestas(Vertice v1, Vertice v2) {
-        ArrayList<Vertice> posArray = hashMap.get(v1);
+        ArrayList<Vertice> posArray = grafo.get(v1);
         posArray.remove(v2);
     }
 
     public void removerVertice(Vertice v1) {
-        for (String key : hashMap.keySet()) {
-            ArrayList<Vertice> value = hashMap.get(key);
+        for (String key : grafo.keySet()) {
+            ArrayList<Vertice> value = grafo.get(key);
             for (Vertice vertice : value) {
                 if (vertice.equals(v1)) {
-                    hashMap.remove(key);
+                    grafo.remove(key);
                 }
             }
         }
     }
+
+    public Map<String, ArrayList<Vertice>> getGrafo() {
+        return grafo;
+    }
+    
+    
 }
