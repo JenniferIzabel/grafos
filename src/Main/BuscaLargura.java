@@ -18,7 +18,7 @@ import sun.misc.Queue;
 public class BuscaLargura {
 
     private Map<String, ArrayList<Vertice>> g;
-    private Vertice s;
+    private VerticeBuscaLargura s;
     private Queue<Vertice> q;
     private int infinito = 2147483647; //último número que cabe em um int
 
@@ -26,7 +26,7 @@ public class BuscaLargura {
         this.g = grafo;
     }
 
-    public BuscaLargura(Map<String, ArrayList<Vertice>> grafo, Vertice s) {
+    public BuscaLargura(Map<String, ArrayList<Vertice>> grafo, VerticeBuscaLargura s) {
         this.g = grafo;
         this.s = s;
     }
