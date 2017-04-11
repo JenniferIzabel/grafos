@@ -11,9 +11,9 @@ package Main;
  */
 public class VerticeBuscaLargura extends Vertice{
     // Atributos para Busca em largura
-    private char cor = 'W'; // Todo vertice inicializa como White
+    private char cor; // Todo vertice inicializa como White
     private int d; 
-    private int pi;
+    private Integer pi;
 
         
     
@@ -33,11 +33,11 @@ public class VerticeBuscaLargura extends Vertice{
         this.d = d;
     }
 
-    public int getPi() {
+    public Integer getPi() {
         return pi;
     }
 
-    public void setPi(int pi) {
+    public void setPi(Integer pi) {
         this.pi = pi;
     }
     

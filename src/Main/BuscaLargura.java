@@ -7,7 +7,6 @@ package Main;
 
 import java.util.ArrayList;
 import java.util.Map;
-import javafx.scene.paint.Color;
 import jdk.nashorn.internal.objects.Global;
 import sun.misc.Queue;
 
@@ -15,35 +14,34 @@ import sun.misc.Queue;
  *
  * @author jennifer
  */
-public class BuscaLargura {
+public class BuscaLargura<V extends VerticeBuscaLargura> {
 
-    private Map<String, ArrayList<Vertice>> g;
+    private Map<String, ArrayList<V>> g;
     private VerticeBuscaLargura s;
-    private Queue<Vertice> q;
+    private Queue<V> q;
     private int infinito = 2147483647; //último número que cabe em um int
 
-    public BuscaLargura(Map<String, ArrayList<Vertice>> grafo) {
+    public BuscaLargura(Map<String, ArrayList<V>> grafo) {
         this.g = grafo;
     }
 
-    public BuscaLargura(Map<String, ArrayList<Vertice>> grafo, VerticeBuscaLargura s) {
+    public BuscaLargura(Map<String, ArrayList<V>> grafo, VerticeBuscaLargura s) {
         this.g = grafo;
         this.s = s;
     }
 
-    public void Init_BFS(Map<String, ArrayList<Vertice>> g, Vertice s) {
-        for (Object key : g.keySet()) {
-            if (key.equals(s)) {
-                s.setCor('W');
-                s.setD(infinito);
-                s.setPi(null);
-            }
+    public void Init_BFS(Map<String, ArrayList<V>> g, V s) {
+        int i = 0;
+        for (Object u : g.keySet()) {
+                g.get(u).get(i).setCor('W');
+                g.get(u).get(i).setD(infinito);
+                g.get(u).get(i).setPi(null);
+                i++;
         }
         s.setCor('G');
         s.setD(0);
         s.setPi(null);
-        q = 0;
-        Enqueue(q,s);
+        q.enqueue(s);
     }
 
 }
