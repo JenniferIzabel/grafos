@@ -11,13 +11,63 @@ package Main;
  */
 public class Main {
 
+        static Vertice vA = new Vertice("A");
+        static Vertice vB = new Vertice("B");
+        static Vertice vC = new Vertice("C");
+        static Vertice vD = new Vertice("D");
+        static Vertice vE = new Vertice("E");
+        static Vertice[] lista = {vA, vB, vC, vD, vE};
     public static void main(String[] args) {
-        Vertice v1 = new Vertice("A");
-        Vertice v2 = new Vertice("B");
-        Vertice[] lista = {v1, v2};
 
-        Matriz m = new Matriz(2, lista);
+        //testaMatriz();
+        testaListaEncadeada();
+    }
+    
+    public static void testaMatriz(){
+        System.out.println("TESTE MATRIZ BEGIN");
+        
+        Matriz m = new Matriz(5, lista);
+        System.out.println("CRIAÇÃO MATRIZ OK");
+        
+        m.adicionaAresta(0, 1);
+        m.adicionaAresta(1, 2);
+        m.adicionaAresta(1, 3);
+        m.adicionaAresta(3, 4);
+        m.adicionaAresta(2, 0);
+        m.adicionaAresta(10, 10);
+        System.out.println("ADICIONAR ARESTA OK");
+        
+        m.imprimeMatriz();
+        System.out.println("IMPRIMIR MATRIZ OK");
+        
+        m.removeAresta(2, 0);
+        m.removeAresta(7, 0);
+        System.out.println("REMOVER ARESTA OK");
+        
+        m.imprimeMatriz();
+        
+        System.out.println("TESTE MATRIZ END");
+        
+    }
+    
+    public static void testaListaEncadeada(){
+        System.out.println("TESTE LISTA ENCADEADA BEGIN");
+        
+        ListaEncadeada le = new ListaEncadeada(lista);
+        System.out.println("CRIAR LISTA ENCADEADA OK");
+        
+        Vertice vF = new Vertice("F");
+        le.adicionarNovoVertice(vF);
+        System.out.println("ADICIONAR NOVO VERTICE OK");
 
+        le.adicionarArestas(vF, vA);
+        System.out.println("ADICIONAR NOVA ARESTA OK");
+        
+        le.getGrafo().toString();
+        System.out.println("IMPRIMIR GRAFO OK");
+        
+        
+        
     }
 
 }

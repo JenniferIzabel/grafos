@@ -51,7 +51,7 @@ public class BuscaLargura<V extends VerticeBuscaLargura> {
         int i = 0;
         while (!q.isEmpty()) {
             u = q.dequeue();
-            for (Object v : g.keySet()) {
+            for (Object v : g.get(u)) {
                 if (g.get(v).get(i).getCor() == 'W') {
                     g.get(v).get(i).setCor('G');
                     g.get(v).get(i).setD(u.getD() + 1);
