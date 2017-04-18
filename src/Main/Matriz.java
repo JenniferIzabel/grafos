@@ -21,8 +21,10 @@ public class Matriz {
     }
     
     private void iniciaMatriz(){
+        this.matriz = new int[][]{0};
         for (int i = 0; i < ordemInicial; i++) {
             for (int j = 0; j < ordemInicial; j++) {
+                System.out.println(i+","+j);
                 matriz[i][j] = 0;
             }
         }

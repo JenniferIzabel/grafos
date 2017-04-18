@@ -10,13 +10,14 @@ package Main;
  * @author jennifer
  */
 public class Main {
-    Vertice v1 = new Vertice("A");
-    Vertice v2 = new Vertice("B");
-    Vertice[] lista = {v1, v2};
-    
-    Matriz m = new Matriz(2,lista);
-    
-   
-    
-    
+
+    public static void main(String[] args) {
+        Vertice v1 = new Vertice("A");
+        Vertice v2 = new Vertice("B");
+        Vertice[] lista = {v1, v2};
+
+        Matriz m = new Matriz(2, lista);
+
+    }
+
 }
