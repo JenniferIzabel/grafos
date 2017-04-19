@@ -7,8 +7,8 @@ package Main;
 
 import java.util.ArrayList;
 import java.util.Map;
-import jdk.nashorn.internal.objects.Global;
-import sun.misc.Queue;
+import java.util.Queue;
+
 
 /**
  *
@@ -17,7 +17,7 @@ import sun.misc.Queue;
 public class BuscaLargura<V extends VerticeBuscaLargura> {
 
     private Map<String, ArrayList<V>> g;
-    private VerticeBuscaLargura s;
+    private V s;
     private Queue<V> q;
     private int infinito = 2147483647; //último número que cabe em um int
 
@@ -25,7 +25,7 @@ public class BuscaLargura<V extends VerticeBuscaLargura> {
         this.g = grafo;
     }
 
-    public BuscaLargura(Map<String, ArrayList<V>> grafo, VerticeBuscaLargura s) {
+    public BuscaLargura(Map<String, ArrayList<V>> grafo, V s) {
         this.g = grafo;
         this.s = s;
     }
@@ -36,26 +36,26 @@ public class BuscaLargura<V extends VerticeBuscaLargura> {
             if (!u.equals(s)) {
                 g.get(u).get(i).setCor('W');
                 g.get(u).get(i).setD(infinito);
-                g.get(u).get(i).setPi(null);
+                g.get(u).get(i).setPredecessor(null);
             }
             i++;
         }
         s.setCor('G');
         s.setD(0);
-        s.setPi(null);
-        q.enqueue(s);
+        s.setPredecessor(null);
+        q.add(s);
     }
 
-    public void BFS(Map<String, ArrayList<V>> g, V s) throws InterruptedException {
+    public void BFS(Map<String, ArrayList<V>> g, V s) {
         V u;
         int i = 0;
         while (!q.isEmpty()) {
-            u = q.dequeue();
+            u = q.poll();
             for (Object v : g.get(u)) {
                 if (g.get(v).get(i).getCor() == 'W') {
                     g.get(v).get(i).setCor('G');
                     g.get(v).get(i).setD(u.getD() + 1);
-                    g.get(v).get(i).setPi(u);
+                    g.get(v).get(i).setPredecessor(u);
                     i++;
                 }
             }

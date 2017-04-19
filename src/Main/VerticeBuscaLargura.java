@@ -34,7 +34,7 @@ public class VerticeBuscaLargura extends Vertice{
     }
 
     public VerticeBuscaLargura getPredecessor() {
-        return pi;
+        return predecessor;
     }
 
     public void setPredecessor(VerticeBuscaLargura p) {

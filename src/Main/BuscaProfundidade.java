@@ -5,17 +5,23 @@
  */
 package Main;
 
+import java.util.ArrayList;
+import java.util.Map;
+
 /**
  *
  * @author rafael
+ * 
  */
-public class BuscaProfundidade<V extends VerticeBuscaLargura>  {
+public class BuscaProfundidade<V extends VerticeBuscaProfundidade>  {
 
     private Map<String, ArrayList<V>> g;
-    private VerticeBuscaLargura s;
+    private V s;
     private int tempo = 0;
 
-    public BuscaProfundidade((Map<String, ArrayList<V>> grafo, VerticeBuscaLargura s){
+    
+    
+    public BuscaProfundidade(Map<String, ArrayList<V>> grafo, V s){
       this.g = grafo;
       this.s = s;
     }
@@ -30,21 +36,22 @@ public class BuscaProfundidade<V extends VerticeBuscaLargura>  {
       tempo = 0;
       i = 0;
       for (Object u : g.keySet()) {
-        if(u.getCor.equals('W')){
-          DFS_Visit(g, u);
+        if(g.get(u).get(i).getCor() == 'W'){
+          DFS_Visit(g, (V)u);
         }
         i++;
       }
     }
 
-    public void DFS_Visit(Map<String, ArrayList<V>> g, VerticeBuscaLargura u){
+    public void DFS_Visit(Map<String, ArrayList<V>> g, V u){
       tempo++;
       u.setD(tempo);
       u.setCor('G');
+      int i = 0;
       for (Object v : g.get(u)) {
-        if (v.getCor().equals('W')) {
+        if (g.get(v).get(i).getCor() == 'W') {
           g.get(v).get(i).setPredecessor(u);
-          DFS_Visit(g, v);
+          DFS_Visit(g, (V)v);
         }
       }
       u.setCor('B');

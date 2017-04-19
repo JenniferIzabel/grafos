@@ -12,14 +12,14 @@ package Main;
 public class VerticeBuscaProfundidade extends Vertice {
   private char cor; // Todo vertice inicializa como White
   private int d;
-  private VerticeBuscaLargura predecessor;
+  private VerticeBuscaProfundidade predecessor;
   private int f;
 
   public int getF() {
       return f;
   }
 
-  public void setF(char f) {
+  public void setF(int f) {
       this.f = f;
   }
 
@@ -39,11 +39,11 @@ public class VerticeBuscaProfundidade extends Vertice {
       this.d = d;
   }
 
-  public VerticeBuscaLargura getPredecessor() {
-      return p;
+  public VerticeBuscaProfundidade getPredecessor() {
+      return predecessor;
   }
 
-  public void setPredecessor(VerticeBuscaLargura p) {
+  public void setPredecessor(VerticeBuscaProfundidade p) {
       this.predecessor = p;
   }
 }
