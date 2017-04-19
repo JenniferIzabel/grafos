@@ -21,27 +21,36 @@ public class Matriz {
     }
     
     private void iniciaMatriz(){
-        this.matriz = new int[][]{0};
+        this.matriz = new int[ordemInicial][ordemInicial];
         for (int i = 0; i < ordemInicial; i++) {
             for (int j = 0; j < ordemInicial; j++) {
-                System.out.println(i+","+j);
                 matriz[i][j] = 0;
             }
         }
     }
     
     public void adicionaAresta(int x, int y){
-        matriz[x][y] = 1;
+        if(x < ordemInicial && y < ordemInicial){
+            matriz[x][y] = 1;
+        }else{
+            System.out.println("A aresta solicitada ("+x+", "+y+") não pode pertencer ao grafo");
+        }
+        
     }
     
      public void removeAresta(int x, int y){
-        matriz[x][y] = 0;
+        if(x < ordemInicial && y < ordemInicial){
+            matriz[x][y] = 0;
+        }else{
+            System.out.println("A aresta solicitada ("+x+", "+y+") não pertence ao grafo");
+        }
+        
     }
     
     public void imprimeMatriz(){
         for (int i = 0; i < ordemInicial; i++) {
             for (int j = 0; j < ordemInicial; j++) {
-                System.out.print(matriz[i][j]+" , ");
+                System.out.print(matriz[i][j]+"   ");
             }
             System.out.print("\n");
         }
