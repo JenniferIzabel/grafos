@@ -12,7 +12,7 @@ package Main;
 public class Vertice {
     
     private String nome;
-    private Vertice adjacente;
+//    private Vertice adjacente;
     
     
 
@@ -27,13 +27,13 @@ public class Vertice {
         return nome;
     }
 
-    public Vertice getAdjacente() {
-        return adjacente;
-    }
-
-    public void setAdjacente(Vertice adjacente) {
-        this.adjacente = adjacente;
-    }
+//    public Vertice getAdjacente() {
+//        return adjacente;
+//    }
+//
+//    public void setAdjacente(Vertice adjacente) {
+//        this.adjacente = adjacente;
+//    }
 
     
     

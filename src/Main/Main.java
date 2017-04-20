@@ -20,7 +20,7 @@ public class Main {
     public static void main(String[] args) {
 
         //testaMatriz();
-        testaListaEncadeada();
+        testaListaAdjacencia();
     }
     
     public static void testaMatriz(){
@@ -50,11 +50,11 @@ public class Main {
         
     }
     
-    public static void testaListaEncadeada(){
-        System.out.println("TESTE LISTA ENCADEADA BEGIN");
+    public static void testaListaAdjacencia(){
+        System.out.println("TESTE LISTA ADJACENCIA BEGIN");
         
-        ListaEncadeada le = new ListaEncadeada(lista);
-        System.out.println("CRIAR LISTA ENCADEADA OK");
+        ListaAdjacencia le = new ListaAdjacencia(lista);
+        System.out.println("CRIAR LISTA ADJACENCIA OK");
         
         Vertice vF = new Vertice("F");
         le.adicionarNovoVertice(vF);

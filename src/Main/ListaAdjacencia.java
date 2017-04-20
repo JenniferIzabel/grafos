@@ -13,9 +13,9 @@ import java.util.Map;
  *
  * @author jennifer
  */
-public class ListaEncadeada<V extends Vertice> {
+public class ListaAdjacencia<V extends Vertice> {
 
-    private ArrayList<V> vertices = new ArrayList<V>();
+    //private ArrayList<V> vertices = new ArrayList<V>();
     private V[] v; // lista de vertices passados por parametro
 
     private int initialSize;
@@ -23,7 +23,7 @@ public class ListaEncadeada<V extends Vertice> {
     private double sizeToRehash;
     private Map<String, ArrayList<V>> grafo = new HashMap<String, ArrayList<V>>();
 
-    public ListaEncadeada(V[] v) {
+    public ListaAdjacencia(V[] v) {
         this.v = v;
         initialSize = v.length * 2;  // tamanho do Hash Map
         inicializaHashMap();
@@ -37,20 +37,18 @@ public class ListaEncadeada<V extends Vertice> {
         }
     }
 
-    public void adicionarNovoVertice(V ver) {
+    public void adicionarNovoVertice(V v1) {
         ArrayList<V> aux = new ArrayList<V>();
-        aux.add(ver);
-        grafo.put(ver.getNome(), aux);
+        aux.add(v1);
+        grafo.put(v1.getNome(), aux);
     }
 
     public void adicionarArestas(V v1, V v2) {
-        ArrayList<V> posArray = grafo.get(v1);
-        posArray.add(v2);
+        grafo.get(v1.getNome()).add(v2);
     }
 
     public void removerArestas(V v1, V v2) {
-        ArrayList<V> posArray = grafo.get(v1);
-        posArray.remove(v2);
+        grafo.get(v1).remove(v2);
     }
 
     public void removerVertice(V v1) {
