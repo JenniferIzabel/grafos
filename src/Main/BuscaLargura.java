@@ -12,7 +12,7 @@ import java.util.Queue;
 
 /**
  *
- * @author jennifer
+ * @author Rafael
  */
 public class BuscaLargura<V extends VerticeBuscaLargura> {
 
@@ -23,7 +23,7 @@ public class BuscaLargura<V extends VerticeBuscaLargura> {
 
     public BuscaLargura(Map<String, ArrayList<V>> grafo) {
         this.g = grafo;
-        
+
         Init_BFS(g, s);
         BFS(g, s);
     }
@@ -31,7 +31,7 @@ public class BuscaLargura<V extends VerticeBuscaLargura> {
     public BuscaLargura(Map<String, ArrayList<V>> grafo, V s) {
         this.g = grafo;
         this.s = s;
-        
+
         Init_BFS(g, s);
         BFS(g, s);
     }
@@ -68,8 +68,8 @@ public class BuscaLargura<V extends VerticeBuscaLargura> {
             u.setCor('B');
         }
     }
-    
-    
+
+
     public void imprimeCaminho(Map<String, ArrayList<V>> g, V s, V v){
         if(v.equals(s)){
             System.out.println(s.getNome()+" -> ");
@@ -83,6 +83,6 @@ public class BuscaLargura<V extends VerticeBuscaLargura> {
                 System.out.println(v.getNome()+" -> ");
             }
         }
-        
+
     }
 }
