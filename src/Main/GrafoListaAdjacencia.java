@@ -43,7 +43,7 @@ public class GrafoListaAdjacencia<V extends Vertice> {
         grafo.put(v1.getNome(), aux);
     }
 
-    public void adicionarArestas(V v1, V v2) {
+    public void adicionaAresta(V v1, V v2) {
         grafo.get(v1.getNome()).add(v2);
     }
 
@@ -66,4 +66,18 @@ public class GrafoListaAdjacencia<V extends Vertice> {
         return grafo;
     }
     
+    public void imrimeGrafo(){
+        for (String key : grafo.keySet()) {
+            ArrayList<V> listadj = grafo.get(key);
+            System.out.print("\n"+listadj.get(0).getNome()+" -> ");
+            int i = 0;
+            for (V vadj : listadj) {
+                if(i!=0){
+                System.out.print(vadj.getNome()+" ");
+                }
+                i++;
+            }
+            System.out.println("");
+        }
+    }
 }

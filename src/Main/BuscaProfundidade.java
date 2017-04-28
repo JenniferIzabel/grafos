@@ -19,8 +19,7 @@ public class BuscaProfundidade<V extends VerticeBuscaProfundidade>  {
     private V s;
     private int tempo = 0;
 
-    
-    
+
     public BuscaProfundidade(Map<String, ArrayList<V>> grafo, V s){
       this.g = grafo;
       this.s = s;
