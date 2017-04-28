@@ -20,13 +20,13 @@ public class Main {
     public static void main(String[] args) {
 
         //testaMatriz();
-        testaListaAdjacencia();
+        testaGrafoListaAdjacencia();
     }
     
-    public static void testaMatriz(){
-        System.out.println("TESTE MATRIZ BEGIN");
+    public static void testaGrafoMatrizAdjacencia(){
+        System.out.println("TESTE GRAFO MATRIZ ADJACENCIA BEGIN");
         
-        Matriz m = new Matriz(5, lista);
+        GrafoMatrizAdjacencia m = new GrafoMatrizAdjacencia(5, lista);
         System.out.println("CRIAÇÃO MATRIZ OK");
         
         m.adicionaAresta(0, 1);
@@ -50,11 +50,11 @@ public class Main {
         
     }
     
-    public static void testaListaAdjacencia(){
-        System.out.println("TESTE LISTA ADJACENCIA BEGIN");
+    public static void testaGrafoListaAdjacencia(){
+        System.out.println("TESTE GRAFO LISTA ADJACENCIA BEGIN");
         
-        ListaAdjacencia le = new ListaAdjacencia(lista);
-        System.out.println("CRIAR LISTA ADJACENCIA OK");
+        GrafoListaAdjacencia le = new GrafoListaAdjacencia(lista);
+        System.out.println("CRIAR GRAFO LISTA ADJACENCIA OK");
         
         Vertice vF = new Vertice("F");
         le.adicionarNovoVertice(vF);
@@ -63,8 +63,6 @@ public class Main {
         le.adicionarArestas(vF, vA);
         System.out.println("ADICIONAR NOVA ARESTA OK");
         
-        le.getGrafo().toString();
-        System.out.println("IMPRIMIR GRAFO OK");
         
         
         

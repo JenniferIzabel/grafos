@@ -13,7 +13,7 @@ import java.util.Map;
  *
  * @author jennifer
  */
-public class ListaAdjacencia<V extends Vertice> {
+public class GrafoListaAdjacencia<V extends Vertice> {
 
     //private ArrayList<V> vertices = new ArrayList<V>();
     private V[] v; // lista de vertices passados por parametro
@@ -23,7 +23,7 @@ public class ListaAdjacencia<V extends Vertice> {
     private double sizeToRehash;
     private Map<String, ArrayList<V>> grafo = new HashMap<String, ArrayList<V>>();
 
-    public ListaAdjacencia(V[] v) {
+    public GrafoListaAdjacencia(V[] v) {
         this.v = v;
         initialSize = v.length * 2;  // tamanho do Hash Map
         inicializaHashMap();
@@ -65,6 +65,5 @@ public class ListaAdjacencia<V extends Vertice> {
     public Map<String, ArrayList<V>> getGrafo() {
         return grafo;
     }
-    
     
 }

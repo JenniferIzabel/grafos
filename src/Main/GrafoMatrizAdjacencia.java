@@ -9,12 +9,12 @@ package Main;
  *
  * @author jennifer
  */
-public class Matriz {
+public class GrafoMatrizAdjacencia {
     private int ordemInicial;
     private Vertice[] listaVertices;
     private int matriz[][];
 
-    public Matriz(int ordem, Vertice[] v) {
+    public GrafoMatrizAdjacencia(int ordem, Vertice[] v) {
         this.ordemInicial = ordem;
         listaVertices = v;
         iniciaMatriz();
