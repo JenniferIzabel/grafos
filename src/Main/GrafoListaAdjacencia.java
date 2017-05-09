@@ -21,12 +21,18 @@ public class GrafoListaAdjacencia<V extends Vertice> {
     private int initialSize;
     private double loadFactor = 0.75;
     private double sizeToRehash;
+    private V first;
     private Map<String, ArrayList<V>> grafo = new HashMap<String, ArrayList<V>>();
 
     public GrafoListaAdjacencia(V[] v) {
         this.v = v;
         initialSize = v.length * 2;  // tamanho do Hash Map
         inicializaHashMap();
+        first = v[0];
+    }
+
+    public V getFirst() {
+        return first;
     }
 
     private void inicializaHashMap() {
